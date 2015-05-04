@@ -34,4 +34,35 @@ public class Person {
 	public String getAdresse() {
 		return adresse;
 	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((adresse == null) ? 0 : adresse.hashCode());
+		result = prime * result + ((navn == null) ? 0 : navn.hashCode());
+		
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		
+		if (this == obj) return true;
+		if (obj == null) return false;
+		if (getClass() != obj.getClass()) return false;
+		
+		Person other = (Person) obj;
+		if (adresse == null) {
+			if (other.adresse != null)
+				return false;
+		} else if (!adresse.equals(other.adresse))
+			return false;
+		if (navn == null) {
+			if (other.navn != null)
+				return false;
+		} else if (!navn.equals(other.navn))
+			return false;
+		return true;
+	}
 }

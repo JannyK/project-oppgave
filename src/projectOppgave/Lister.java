@@ -1,11 +1,14 @@
 package projectOppgave;
 
 import java.util.HashSet;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Set;
 
 public class Lister {
 	
-	private Set<Kunde> kundeliste;
+	private List<Kunde> kundeliste;
 	private Set<BilForsikring> bilForsikringer;
 	private Set<BåtForsikring> båtForsikringer;
 	private Set<FritidsboligForsikring> fritidsboligForsikringer;
@@ -15,7 +18,7 @@ public class Lister {
 
 	
     public Lister() {
-    	this.kundeliste = new HashSet<Kunde>();
+    	this.kundeliste = new ArrayList<Kunde>();
     	this.bilForsikringer = new HashSet<BilForsikring>();
     	this.båtForsikringer = new HashSet<BåtForsikring>();
     	this.fritidsboligForsikringer = new HashSet<FritidsboligForsikring>();
@@ -25,11 +28,11 @@ public class Lister {
     }
   
     
-    public Set<Kunde> getKundeliste() {
+    public List<Kunde> getKundeliste() {
 		return kundeliste;
 	}
 
-	public void setKundeliste(Set<Kunde> kundeliste) {
+	public void setKundeliste(List<Kunde> kundeliste) {
 		this.kundeliste = kundeliste;
 	}
 
@@ -90,7 +93,23 @@ public class Lister {
 	
 	//TODO: implement
 	public boolean leggTilKunde(Kunde k) {
-		return true;
+		Iterator<Kunde> it = this.kundeliste.iterator();
+		boolean ok = true;
+		
+		while(it.hasNext()) {
+			Kunde item = it.next();
+			
+			if (item.equals(k)) {
+				ok = false;
+				break;
+			}
+		}
+		
+		if(ok) {
+			this.kundeliste.add(k);
+		}
+		
+		return ok;
 	}
 	
 	//TODO: implement
