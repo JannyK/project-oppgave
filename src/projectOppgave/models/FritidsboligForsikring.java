@@ -1,11 +1,10 @@
-package projectOppgave;
+package projectOppgave.models;
 
 import java.util.Date;
 
-public class HusOgInnboForsikring extends Forsikring {
+public class FritidsboligForsikring extends Forsikring {
 	
-	//private Adresse boligAdresse;
-	private String boligAdresse;
+	private Adresse boligAdresse;
 	private int byggeÅr;
 	private String boligType;
 	private String byggeMaterialer;
@@ -13,18 +12,20 @@ public class HusOgInnboForsikring extends Forsikring {
 	private float antallKvadratMeter;
 	private float bygningsforsikringsBeløp;
 	private float innboforsikringsBeløp;
+	private double utleie;
+	private String andreInfo;
 	
-	public HusOgInnboForsikring(Date dato, String betingelser, double premier, String boligAdresse) {
-		super(dato, betingelser, premier);
+	public FritidsboligForsikring(Kunde kunde, Date dato, String betingelser, double premie, double beløp, Adresse boligAdresse) {
+		super(kunde, dato, betingelser, premie, beløp);
 		
 		this.boligAdresse = boligAdresse;
 	}
 
-	public String getBoligAdresse() {
+	public Adresse getBoligAdresse() {
 		return boligAdresse;
 	}
 
-	public void setBoligAdresse(String boligAdresse) {
+	public void setBoligAdresse(Adresse boligAdresse) {
 		this.boligAdresse = boligAdresse;
 	}
 
@@ -82,5 +83,27 @@ public class HusOgInnboForsikring extends Forsikring {
 
 	public void setInnboforsikringsBeløp(float innboforsikringsBeløp) {
 		this.innboforsikringsBeløp = innboforsikringsBeløp;
+	}
+
+	public double getUtleie() {
+		return utleie;
+	}
+
+	public void setUtleie(double utleie) {
+		this.utleie = utleie;
+	}
+
+	/**
+	 * @return the andreInfo
+	 */
+	public String getAndreInfo() {
+		return andreInfo;
+	}
+
+	/**
+	 * @param andreInfo the andreInfo to set
+	 */
+	public void setAndreInfo(String andreInfo) {
+		this.andreInfo = andreInfo;
 	}
 }

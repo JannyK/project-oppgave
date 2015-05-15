@@ -1,14 +1,19 @@
-package projectOppgave;
+package projectOppgave.models;
 
 import java.util.Date;
 
 public class SkadeMelding {
 	
+	public enum TypeSkade {
+		VANN_SKEDE,
+		BRANN_SKADE,
+		//etc...
+	}
+	
 	private Date dato;
 	private int skadeNummer;
-	private int TypeSkade;
+	private TypeSkade typeSkade;
 	private String beskrivelse;
-	//private List<SkadeBildet> skadeBilder;
 	private String vitnerKontaktInfo;
 	private double takseringBeløp;
 	private double utbetaltErstatningsBeløp;
@@ -29,12 +34,12 @@ public class SkadeMelding {
 		this.skadeNummer = skadeNummer;
 	}
 
-	public int getTypeSkade() {
-		return TypeSkade;
+	public TypeSkade getTypeSkade() {
+		return typeSkade;
 	}
 
-	public void setTypeSkade(int typeSkade) {
-		TypeSkade = typeSkade;
+	public void setTypeSkade(TypeSkade typeSkade) {
+		this.typeSkade = typeSkade;
 	}
 
 	public String getBeskrivelse() {
@@ -69,9 +74,9 @@ public class SkadeMelding {
 		this.utbetaltErstatningsBeløp = utbetaltErstatningsBeløp;
 	}
 
-	public SkadeMelding(Date dato, int typeSkade) {
+	public SkadeMelding(Date dato, TypeSkade typeSkade) {
 		super();
 		this.dato = dato;
-		TypeSkade = typeSkade;
+		this.typeSkade = typeSkade;
 	}
 }

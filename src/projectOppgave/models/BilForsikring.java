@@ -1,19 +1,25 @@
-package projectOppgave;
+package projectOppgave.models;
 
 import java.util.Date;
 
 public class BilForsikring extends Forsikring {
+	
+	public enum BilType {
+        PERSON_BIL, LASTE_BIL
+    }
+	
 	private Person bilEier;
 	private int registreringsNummber;
-	private String bilType;
+	private BilType bilType;
 	private String modell;
 	private int registreringsÅr;
 	private double kjøreLengde;
 	private double prisPerKilometer;
 	private String bonus;
+	private String andreInfo;
 	
-	public BilForsikring(Date dato, String betingelser, double premier, Person eier) {
-		super(dato, betingelser, premier);
+	public BilForsikring(Kunde kunde, Date dato, String betingelser, double premie, double beløp, Person eier) {
+		super(kunde, dato, betingelser, premie, beløp);
 		
 		this.setBilEier(eier);
 	}
@@ -34,11 +40,11 @@ public class BilForsikring extends Forsikring {
 		this.registreringsNummber = registreringsNummber;
 	}
 
-	public String getBilType() {
+	public BilType getBilType() {
 		return bilType;
 	}
 
-	public void setBilType(String bilType) {
+	public void setBilType(BilType bilType) {
 		this.bilType = bilType;
 	}
 
@@ -80,5 +86,19 @@ public class BilForsikring extends Forsikring {
 
 	public void setBonus(String bonus) {
 		this.bonus = bonus;
+	}
+
+	/**
+	 * @return the andreInfo
+	 */
+	public String getAndreInfo() {
+		return andreInfo;
+	}
+
+	/**
+	 * @param andreInfo the andreInfo to set
+	 */
+	public void setAndreInfo(String andreInfo) {
+		this.andreInfo = andreInfo;
 	}
 }

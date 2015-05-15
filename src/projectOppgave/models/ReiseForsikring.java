@@ -1,4 +1,4 @@
-package projectOppgave;
+package projectOppgave.models;
 
 import java.util.Date;
 
@@ -7,8 +7,8 @@ public class ReiseForsikring extends Forsikring {
 	private String forsikringsOmråde;
 	private double forsikringsSum;
 	
-	public ReiseForsikring(Date dato, String betingelser, double premier, String område) {
-		super(dato, betingelser, premier);
+	public ReiseForsikring(Kunde kunde, Date dato, String betingelser, double premie, double beløp, String område) {
+		super(kunde, dato, betingelser, premie, beløp);
 		
 		this.forsikringsOmråde = område;
 	}

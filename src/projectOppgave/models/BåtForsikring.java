@@ -1,19 +1,27 @@
-package projectOppgave;
+package projectOppgave.models;
 
 import java.util.Date;
 
-public class BåtForsikring extends Forsikring{
+public class BåtForsikring extends Forsikring {
+	
+	public enum BåtType {
+		PERSON_BÅT,
+		STOR_BÅT,
+		CRUISE_BÅT
+	}
+	
 	private Person båtEier;
 	private int registreringsNummber;
-	private String båtType;
+	private BåtType båtType;
 	private String modell;
 	private float lengde;
 	private String årsModell;
 	private String motorType;
 	private float motorStyrke;
+	private String andreInfo;
 	
-	public BåtForsikring(Date dato, String betingelser, double premier, Person eier) {
-		super(dato, betingelser, premier);
+	public BåtForsikring(Kunde kunde, Date dato, String betingelser, double premie, double beløp, Person eier) {
+		super(kunde, dato, betingelser, premie, beløp);
 		
 		this.setBåtEier(eier);
 	}
@@ -34,11 +42,11 @@ public class BåtForsikring extends Forsikring{
 		this.registreringsNummber = registreringsNummber;
 	}
 
-	public String getBåtType() {
+	public BåtType getBåtType() {
 		return båtType;
 	}
 
-	public void setBåtType(String båtType) {
+	public void setBåtType(BåtType båtType) {
 		this.båtType = båtType;
 	}
 
@@ -80,5 +88,19 @@ public class BåtForsikring extends Forsikring{
 
 	public void setMotorStyrke(float motorStyrke) {
 		this.motorStyrke = motorStyrke;
+	}
+
+	/**
+	 * @return the andreInfo
+	 */
+	public String getAndreInfo() {
+		return andreInfo;
+	}
+
+	/**
+	 * @param andreInfo the andreInfo to set
+	 */
+	public void setAndreInfo(String andreInfo) {
+		this.andreInfo = andreInfo;
 	}
 }

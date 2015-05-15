@@ -1,4 +1,4 @@
-package projectOppgave;
+package projectOppgave.models;
 
 public class Person {
 	private String navn;
