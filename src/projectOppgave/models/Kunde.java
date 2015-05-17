@@ -1,11 +1,15 @@
 package projectOppgave.models;
 
+import java.util.Calendar;
 import java.util.Date;
+import java.util.Formatter;
 import java.util.List;
 
 public class Kunde extends Person {
 	
-	private Date registreringsDato;
+	private static int REGISTRERINGSNUMMER_INCREMENTER = 1;
+	
+	private Calendar registreringsDato;
 	private int registreringsNummer;
 	
 	private List<Forsikring> forsikringer;
@@ -15,15 +19,17 @@ public class Kunde extends Person {
 	private double årligPremier;
 	private double total;
 	
-	public Kunde(String n, String adr, int alder) {
+	public Kunde(String n, Adresse adr, int alder) {
 		super(n, adr, alder);
+		
+		this.registreringsNummer = REGISTRERINGSNUMMER_INCREMENTER++;
 	}
 	
-	public Date getRegistreringDato() {
+	public Calendar getRegistreringDato() {
 		return registreringsDato;
 	}
 	
-	public void setRegistreringsDato(Date date) {
+	public void setRegistreringsDato(Calendar date) {
 		this.registreringsDato = date;
 	}
 	
@@ -91,18 +97,32 @@ public class Kunde extends Person {
 		this.utbetalteErstatninger = utbetalteErstatninger;
 	}
 
-	/**
-	 * @return the registreringsDato
-	 */
-	public Date getRegistreringsDato() {
-		return registreringsDato;
-	}
-
 	public boolean erTotalKunde() {
 		//TODO: Implement
 		
 		
 		return false;
+	}
+	
+	@Override
+	public String toString() {
+		
+        Formatter fmt = new Formatter();
+        fmt.format("%tc", this.getRegistreringDato());
+        	
+		StringBuilder sb = new StringBuilder();
+		sb.append("PATIENT: "+ this.getRegistreringsNummer() + "\n");
+		sb.append("Name: "+ this.getNavn() + "\n");
+		sb.append("Alder: "+ this.getAlder() + "\n");
+		sb.append("Registreringsdata: "+ fmt + "\n");
+		sb.append("Adresse: "+ 
+				this.getAdresse().getGateAdresse() + " " +
+				this.getAdresse().getGateNummer() + ", "+ 
+				this.getAdresse().getPostNummer() + " "+ 
+				this.getAdresse().getBy() + " "+
+				this.getAdresse().getLand() + "\n");
+		
+		return sb.toString();
 	}
 	
 }

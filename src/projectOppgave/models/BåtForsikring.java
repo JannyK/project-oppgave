@@ -1,6 +1,6 @@
 package projectOppgave.models;
 
-import java.util.Date;
+import java.util.Calendar;
 
 public class BåtForsikring extends Forsikring {
 	
@@ -20,7 +20,7 @@ public class BåtForsikring extends Forsikring {
 	private float motorStyrke;
 	private String andreInfo;
 	
-	public BåtForsikring(Kunde kunde, Date dato, String betingelser, double premie, double beløp, Person eier) {
+	public BåtForsikring(Kunde kunde, Calendar dato, String betingelser, double premie, double beløp, Person eier) {
 		super(kunde, dato, betingelser, premie, beløp);
 		
 		this.setBåtEier(eier);

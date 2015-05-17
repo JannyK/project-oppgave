@@ -1,5 +1,6 @@
 package projectOppgave.models;
 
+import java.util.Calendar;
 import java.util.Date;
 
 public class HusOgInnboForsikring extends Forsikring {
@@ -14,7 +15,7 @@ public class HusOgInnboForsikring extends Forsikring {
 	private float innboforsikringsBeløp;
 	private String andreInfo;
 	
-	public HusOgInnboForsikring(Kunde kunde, Date dato, String betingelser, double premie, double beløp, Adresse boligAdresse) {
+	public HusOgInnboForsikring(Kunde kunde, Calendar dato, String betingelser, double premie, double beløp, Adresse boligAdresse) {
 		super(kunde, dato, betingelser, premie, beløp);
 		
 		this.boligAdresse = boligAdresse;

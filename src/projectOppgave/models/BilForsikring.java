@@ -1,6 +1,6 @@
 package projectOppgave.models;
 
-import java.util.Date;
+import java.util.Calendar;
 
 public class BilForsikring extends Forsikring {
 	
@@ -18,7 +18,7 @@ public class BilForsikring extends Forsikring {
 	private String bonus;
 	private String andreInfo;
 	
-	public BilForsikring(Kunde kunde, Date dato, String betingelser, double premie, double beløp, Person eier) {
+	public BilForsikring(Kunde kunde, Calendar dato, String betingelser, double premie, double beløp, Person eier) {
 		super(kunde, dato, betingelser, premie, beløp);
 		
 		this.setBilEier(eier);

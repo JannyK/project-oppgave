@@ -1,5 +1,6 @@
 package projectOppgave.models;
 
+import java.util.Calendar;
 import java.util.Date;
 
 public class FritidsboligForsikring extends Forsikring {
@@ -15,7 +16,7 @@ public class FritidsboligForsikring extends Forsikring {
 	private double utleie;
 	private String andreInfo;
 	
-	public FritidsboligForsikring(Kunde kunde, Date dato, String betingelser, double premie, double beløp, Adresse boligAdresse) {
+	public FritidsboligForsikring(Kunde kunde, Calendar dato, String betingelser, double premie, double beløp, Adresse boligAdresse) {
 		super(kunde, dato, betingelser, premie, beløp);
 		
 		this.boligAdresse = boligAdresse;

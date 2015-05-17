@@ -1,11 +1,12 @@
 package projectOppgave.models;
 
 public class Person {
+	
 	private String navn;
-	private String adresse;
+	private Adresse adresse;
 	private int alder;
 	
-	public Person(String name, String adr, int age) {
+	public Person(String name, Adresse adr, int age) {
 		this.navn = name;
 		this.alder = age;
 		this.adresse = adr;
@@ -27,11 +28,11 @@ public class Person {
 		return alder;
 	}
 	
-	public void setAdresse(String adr) {
+	public void setAdresse(Adresse adr) {
 		this.adresse = adr;
 	}
 	
-	public String getAdresse() {
+	public Adresse getAdresse() {
 		return adresse;
 	}
 

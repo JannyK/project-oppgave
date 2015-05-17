@@ -1,5 +1,6 @@
 package projectOppgave.core;
 
+import java.util.Calendar;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
@@ -38,6 +39,9 @@ public class KundeRegister {
 	
 	//TODO: implement
 	public boolean nyKunde(Kunde k) {
+		Calendar cal = Calendar.getInstance();
+		k.setRegistreringsDato(cal);
+		
 		return this.kundeliste.add(k);
 	}
 	
@@ -71,5 +75,10 @@ public class KundeRegister {
 	
 	public boolean slettKunde(Kunde k) {		
 		return this.kundeliste.remove(k);
+	}
+	
+	
+	public String visKunde(int kundeNr) {
+		return this.finnKunde(kundeNr).toString();
 	}
 }

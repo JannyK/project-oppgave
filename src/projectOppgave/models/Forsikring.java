@@ -1,22 +1,23 @@
 package projectOppgave.models;
 
-import java.util.Date;
+import java.util.Calendar;
 
 public class Forsikring {
 	
+	private String registreringsNummer;
 	private Kunde forsikringsKunde;
 	private double årligPremie;
-	private Date dato;
+	private Calendar dato;
 	private String betingelser;
 	private double beløp;
 	
 	public Forsikring() {
 		this.årligPremie = 0;
-		this.dato = new Date();
+		this.dato = Calendar.getInstance();
 		this.betingelser = "En Enkel forsikring";
 	}
 	
-	public Forsikring(Kunde k, Date dato, String betingelser, double premie, double beløp) {
+	public Forsikring(Kunde k, Calendar dato, String betingelser, double premie, double beløp) {
 		super();
 		
 		this.forsikringsKunde = k;
@@ -26,6 +27,20 @@ public class Forsikring {
 		this.beløp = beløp;
 	}
 	
+	/**
+	 * @return the registreringsNummer
+	 */
+	public String getRegistreringsNummer() {
+		return registreringsNummer;
+	}
+
+	/**
+	 * @param registreringsNummer the registreringsNummer to set
+	 */
+	public void setRegistreringsNummer(String registreringsNummer) {
+		this.registreringsNummer = registreringsNummer;
+	}
+
 	/**
 	 * @return the forsikringsKunde
 	 */
@@ -40,11 +55,11 @@ public class Forsikring {
 		this.forsikringsKunde = forsikringsKunde;
 	}
 
-	public Date getDato() {
+	public Calendar getDato() {
 		return dato;
 	}
 	
-	public void setDato(Date d) {
+	public void setDato(Calendar d) {
 		this.dato = d;
 	}
 	

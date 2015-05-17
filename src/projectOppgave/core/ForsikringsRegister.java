@@ -37,6 +37,21 @@ public class ForsikringsRegister {
 		
 		return bf;	
 	}
+	
+	public BilForsikring finnBilForsikring(String regNummer) {
+		
+		List <Forsikring> forsikringer = this.bilForsikringer();
+		BilForsikring match = null;
+		
+		for (Forsikring bf : forsikringer) {
+			if (bf.getRegistreringsNummer().equalsIgnoreCase(regNummer)) {
+				match = (BilForsikring)bf;
+				break;
+			}
+		}
+		
+		return match;
+	}
 
 	/**
 	 * @return the båtForsikringer
